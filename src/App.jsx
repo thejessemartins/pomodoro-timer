@@ -14,6 +14,12 @@ function App() {
   const [focusTime, setFocusTime] = useState(25);
   const [breakTime, setBreakTime] = useState(5);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   useEffect(() => {
     let intervalId = null;
     if (isRunning && timeLeft > 0) {
@@ -61,7 +67,10 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${darkMode ? 'dark-mode' : ''}`}>
+      <button className="btn btn-light mb-3" onClick={toggleTheme}>
+        {darkMode ? 'Modo Claro' : 'Modo Escuro'}
+      </button>
       <Header />
       <Timer sessionType={sessionType} timeLeft={timeLeft} />
       <Controls
