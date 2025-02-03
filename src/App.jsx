@@ -15,10 +15,16 @@ function App() {
     if (isRunning && timeLeft > 0) {
       intervalId = setInterval(() => setTimeLeft((prevTime) => prevTime - 1), 1000);
     } else if (timeLeft === 0) {
+      playSound();
       handleSessionEnd();
     }
     return () => clearInterval(intervalId);
   }, [isRunning, timeLeft]);
+
+  const playSound = () => {
+    const audio = new Audio('https://notificationsounds.com/soundfiles/7e68c8d09f/alarm-1.mp3'); // URL do som
+    audio.play();
+  };
 
   const handleSessionEnd = () => {
     const newSession = {
