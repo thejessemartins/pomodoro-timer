@@ -4,12 +4,15 @@ import Timer from './components/Timer';
 import Controls from './components/Controls';
 import Report from './components/Report';
 import ProductivityChart from './components/ProductivityChart';
+import Settings from './components/Settings';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState(1500); // 25 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [sessionType, setSessionType] = useState('Focus');
   const [sessions, setSessions] = useState([]);
+  const [focusTime, setFocusTime] = useState(25);
+  const [breakTime, setBreakTime] = useState(5);
 
   useEffect(() => {
     let intervalId = null;
@@ -30,11 +33,11 @@ function App() {
   const handleSessionEnd = () => {
     const newSession = {
       type: sessionType,
-      duration: sessionType === 'Focus' ? 25 : 5,
+      duration: sessionType === 'Focus' ? focusTime : breakTime,
     };
     setSessions((prevSessions) => [...prevSessions, newSession]);
     toggleSessionType();
-    setTimeLeft(sessionType === 'Focus' ? 300 : 1500); // Break or Focus
+    setTimeLeft(sessionType === 'Focus' ? breakTime * 60 : focusTime * 60);
   };
 
   const toggleSessionType = () => {
@@ -49,6 +52,14 @@ function App() {
     setSessionType('Focus');
   };
 
+  const handleFocusTimeChange = (value) => {
+    setFocusTime(value);
+  };
+
+  const handleBreakTimeChange = (value) => {
+    setBreakTime(value);
+  };
+
   return (
     <div className="container">
       <Header />
@@ -61,6 +72,10 @@ function App() {
       />
       <Report sessions={sessions} />
       <ProductivityChart sessions={sessions} />
+      <Settings
+        onFocusTimeChange={handleFocusTimeChange}
+        onBreakTimeChange={handleBreakTimeChange}
+      />
     </div>
   );
 }
