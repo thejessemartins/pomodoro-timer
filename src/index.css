@@ -22,14 +22,6 @@ body {
   color: white;
 }
 
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e8faff; /* Fundo claro com toque de teal */
-  color: #333;
-}
 
 .container {
   max-width: 450px; /* Tamanho compacto */
