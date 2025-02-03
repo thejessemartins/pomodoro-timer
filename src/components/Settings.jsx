@@ -15,11 +15,11 @@ const Settings = ({ onFocusTimeChange, onBreakTimeChange }) => {
   };
 
   return (
-    <div className="mt-5">
+    <div className="settings">
       <h3>Configurações</h3>
-      <div className="mb-3">
+      <div className="mb-2">
         <label htmlFor="focus-time" className="form-label">
-          Duração da Sessão de Foco (minutos):
+          Foco (minutos):
         </label>
         <input
           type="number"
@@ -31,7 +31,7 @@ const Settings = ({ onFocusTimeChange, onBreakTimeChange }) => {
       </div>
       <div>
         <label htmlFor="break-time" className="form-label">
-          Duração da Pausa (minutos):
+          Pausa (minutos):
         </label>
         <input
           type="number"

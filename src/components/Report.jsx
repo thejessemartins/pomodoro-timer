@@ -2,7 +2,7 @@ import React from 'react';
 
 const Report = ({ sessions }) => {
   return (
-    <div className="mt-5">
+    <div className="report">
       <h3>Productivity Report</h3>
       <ul className="list-group">
         {sessions.map((session, index) => (

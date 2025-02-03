@@ -32,7 +32,7 @@ body {
 }
 
 .container {
-  max-width: 400px; /* Tamanho compacto */
+  max-width: 450px; /* Tamanho compacto */
   margin: 50px auto;
   padding: 20px;
   background-color: #ffffff; /* Fundo branco para o container */

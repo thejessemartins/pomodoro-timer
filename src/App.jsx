@@ -7,18 +7,12 @@ import ProductivityChart from './components/ProductivityChart';
 import Settings from './components/Settings';
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState(1500); // 25 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(1500); // 25 minutos
   const [isRunning, setIsRunning] = useState(false);
   const [sessionType, setSessionType] = useState('Focus');
   const [sessions, setSessions] = useState([]);
   const [focusTime, setFocusTime] = useState(25);
   const [breakTime, setBreakTime] = useState(5);
-
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
 
   useEffect(() => {
     let intervalId = null;
@@ -32,7 +26,7 @@ function App() {
   }, [isRunning, timeLeft]);
 
   const playSound = () => {
-    const audio = new Audio('https://notificationsounds.com/soundfiles/7e68c8d09f/alarm-1.mp3'); // URL do som
+    const audio = new Audio('https://notificationsounds.com/soundfiles/7e68c8d09f/alarm-1.mp3');
     audio.play();
   };
 
@@ -54,23 +48,12 @@ function App() {
   const handlePause = () => setIsRunning(false);
   const handleStop = () => {
     setIsRunning(false);
-    setTimeLeft(1500);
+    setTimeLeft(focusTime * 60);
     setSessionType('Focus');
   };
 
-  const handleFocusTimeChange = (value) => {
-    setFocusTime(value);
-  };
-
-  const handleBreakTimeChange = (value) => {
-    setBreakTime(value);
-  };
-
   return (
-    <div className={`container ${darkMode ? 'dark-mode' : ''}`}>
-      <button className="btn btn-light mb-3" onClick={toggleTheme}>
-        {darkMode ? 'Modo Claro' : 'Modo Escuro'}
-      </button>
+    <div className="container">
       <Header />
       <Timer sessionType={sessionType} timeLeft={timeLeft} />
       <Controls
@@ -79,11 +62,11 @@ function App() {
         onPause={handlePause}
         onStop={handleStop}
       />
-      <Report sessions={sessions} />
+      {/* <Report sessions={sessions} /> */}
       <ProductivityChart sessions={sessions} />
       <Settings
-        onFocusTimeChange={handleFocusTimeChange}
-        onBreakTimeChange={handleBreakTimeChange}
+        onFocusTimeChange={(value) => setFocusTime(Number(value))}
+        onBreakTimeChange={(value) => setBreakTime(Number(value))}
       />
     </div>
   );
