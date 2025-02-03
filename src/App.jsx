@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Timer from './components/Timer';
 import Controls from './components/Controls';
 import Report from './components/Report';
+import ProductivityChart from './components/ProductivityChart';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState(1500); // 25 minutes in seconds
@@ -59,6 +60,7 @@ function App() {
         onStop={handleStop}
       />
       <Report sessions={sessions} />
+      <ProductivityChart sessions={sessions} />
     </div>
   );
 }
