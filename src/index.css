@@ -21,3 +21,98 @@ body {
   background-color: #212529;
   color: white;
 }
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e8faff; /* Fundo claro com toque de teal */
+  color: #333;
+}
+
+.container {
+  max-width: 400px; /* Tamanho compacto */
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff; /* Fundo branco para o container */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões personalizados */
+.btn-primary {
+  background-color: #20c997 !important; /* Teal principal */
+  border-color: #20c997 !important;
+}
+
+.btn-primary:hover {
+  background-color: #12b886 !important; /* Teal escuro ao passar o mouse */
+  border-color: #12b886 !important;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.btn-warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+
+/* Estilo para o header */
+header {
+  background-color: #20c997; /* Teal no cabeçalho */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Estilo para o timer */
+.timer {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+/* Estilo para os controles */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.controls .btn {
+  width: 100px; /* Botões menores */
+  font-size: 14px;
+}
+
+/* Estilo para o relatório */
+.report {
+  margin-top: 20px;
+}
+
+.list-group-item {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+/* Estilo para o gráfico */
+.chart-container {
+  margin-top: 20px;
+}
+
+/* Estilo para as configurações */
+.settings {
+  margin-top: 20px;
+}
+
+.settings .form-label {
+  font-size: 14px;
+}
+
+.settings .form-control {
+  font-size: 14px;
+  padding: 6px 10px;
+}
