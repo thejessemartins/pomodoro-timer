@@ -1,5 +1,16 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import {
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import Chart from 'chart.js/auto'; // Certifique-se de que esta linha esteja presente
+
+// Registrar as escalas e elementos manualmente
+Chart.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 const ProductivityChart = ({ sessions }) => {
   const data = {
